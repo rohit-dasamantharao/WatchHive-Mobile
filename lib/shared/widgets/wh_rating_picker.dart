@@ -847,24 +847,8 @@ class _MovieCheckpointSliderPainter extends CustomPainter {
       }
     }
 
-    // ── 5. Active Thumb Knob & Interactive Needle ──
+    // ── 5. Active Thumb Knob ──
     if (isRated && rating > 0.0) {
-      // Precision Vertical Guideline into Checkpoint when interacting
-      if (isInteracting) {
-        final needlePaint = Paint()
-          ..color = glowColor.withValues(alpha: 0.8)
-          ..strokeWidth = 1.5;
-        canvas.drawLine(
-            Offset(thumbX, 26), Offset(thumbX, trackY - 8), needlePaint);
-
-        final pointerPath = Path()
-          ..moveTo(thumbX, 36)
-          ..lineTo(thumbX - 3.5, 30)
-          ..lineTo(thumbX + 3.5, 30)
-          ..close();
-        canvas.drawPath(pointerPath, Paint()..color = glowColor);
-      }
-
       final double glowR = isInteracting ? 18.0 : 13.0;
       final double ringR = isInteracting ? 11.5 : 9.5;
       final double coreR = isInteracting ? 6.0 : 5.0;
